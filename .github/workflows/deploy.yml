@@ -26,8 +26,21 @@ jobs:
           service_account_key: ${{ secrets.GCP_KEY }}
           project_id: ${{ secrets.GCP_PROJECT_ID }}
 
-      - name: Accessing the VM  
+      - name: Configure Docker
+        run: |
+          gcloud auth configure-docker ${{ secrets.GCP_ZONE }}-docker.kg.dev
+
+      - name: Build Docker image
+        run: |
+          docker build -t ${{ secrets.GCP_ZONE }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/my-repo/portfolio:latest .
+
+      - name: Push Docker image
+        run: |
+          docker push ${{ secrets.GCP_ZONE }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/my-repo/portfolio:latest
+
+      - name: Accessing the VM
         run: |
           gcloud compute ssh ${{ secrets.GCP_VM_NAME }} --zone=${{ secrets.GCP_ZONE }} \
-          --command="sudo touch testing_vm.txt" \
+          --command="gcloud auth configure-docker ${{ secrets.GCP_ZONE }}-docker.kg.dev" \
+
           -- -o StrictHostKeyChecking=no
