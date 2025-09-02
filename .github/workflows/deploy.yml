@@ -42,7 +42,7 @@ jobs:
           gcloud compute ssh ${{ secrets.GCP_VM_NAME }} --zone=${{ secrets.GCP_ZONE }} \
             --command="sudo apt-get update && \
             sudo apt-get install -y docker.io && \
-            gcloud auth configure-docker ${{ secrets.GCP_REGION }}-docker.pkg.dev && \
+            sudo gcloud auth configure-docker ${{ secrets.GCP_REGION }}-docker.pkg.dev && \
             sudo docker pull ${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/my-repo/portfolio:latest && \
             sudo docker stop portfolio || true && \
             sudo docker rm portfolio || true && \
