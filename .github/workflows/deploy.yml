@@ -28,19 +28,19 @@ jobs:
 
       - name: Configure Docker
         run: |
-          gcloud auth configure-docker ${{ secrets.GCP_ZONE }}-docker.kg.dev
+          gcloud auth configure-docker ${{ secrets.GCP_REGION }}-docker.kg.dev
 
       - name: Build Docker image
         run: |
-          docker build -t ${{ secrets.GCP_ZONE }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/my-repo/portfolio:latest .
+          docker build -t ${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/my-repo/portfolio:latest .
 
       - name: Push Docker image
         run: |
-          docker push ${{ secrets.GCP_ZONE }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/my-repo/portfolio:latest
+          docker push ${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/my-repo/portfolio:latest
 
       - name: Accessing the VM
         run: |
           gcloud compute ssh ${{ secrets.GCP_VM_NAME }} --zone=${{ secrets.GCP_ZONE }} \
-          --command="gcloud auth configure-docker ${{ secrets.GCP_ZONE }}-docker.kg.dev" \
+          --command="gcloud auth configure-docker ${{ secrets.GCP_REGION }}-docker.kg.dev" \
 
           -- -o StrictHostKeyChecking=no
