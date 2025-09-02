@@ -18,7 +18,7 @@ jobs:
         uses: google-github-actions/setup-gcloud@v2
         with:
           version: 'latest'
-          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          service_account_key: ${{ secrets.GCP_KEY }}
           project_id: ${{ secrets.GCP_PROJECT_ID }}
 
       - name: Accessing the VM  
