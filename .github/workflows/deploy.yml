@@ -44,5 +44,4 @@ jobs:
           docker pull ${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/my-repo/portfolio:latest && \
           docker stop portfolio || true && \
           docker rm portfolio || true && \
-          docker run -d -p 80:80 --name portfolio ${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/my-repo/portfolio:latest" \ 
-          -- -o StrictHostKeyChecking=no
+          docker run -d -p 80:80 --name portfolio ${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/my-repo/portfolio:latest" \          -- -o StrictHostKeyChecking=no
