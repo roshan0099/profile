@@ -46,7 +46,7 @@ jobs:
             sudo docker pull ${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/my-repo/portfolio:latest && \
             sudo docker stop portfolio || true && \
             sudo docker rm portfolio || true && \
-            sudo docker run -d -p 8080:80 --name portfolio ${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/my-repo/portfolio:latest" \
+            sudo docker run -d -p 80:80 --name portfolio ${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/my-repo/portfolio:latest" \
             -- -o StrictHostKeyChecking=no
   
      
