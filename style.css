@@ -1,16 +1,38 @@
 /* Base Styles */
 :root {
-    --bg-color: #0d1117;
-    --terminal-bg: #161b22;
-    --text-color: #e6edf3;
-    --highlight-color: #ff5858;
-    --secondary-color: #8b949e;
-    --accent-color: #7ee787;
-    --error-color: #f85149;
-    --warning-color: #f0883e;
-    --success-color: #56d364;
-    --border-color: #30363d;
+    --bg-color: #000000;
+    --terminal-bg: #000000;
+    --text-color: #ffffff;
+    --highlight-color: #ff0000;
+    --accent-color: #00ff00;
+    --border-color: #333333;
     --font-mono: 'Consolas', 'Monaco', 'Lucida Console', monospace;
+}
+
+[data-theme="light"] {
+    --bg-color: #f5f5f5;
+    --terminal-bg: #f5f5f5;
+    --text-color: #000000;
+    --highlight-color: #cc0000;
+    --accent-color: #006600;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    border-color: var(--accent-color);
 }
 
 * {
@@ -30,22 +52,7 @@ body {
 }
 
 body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: repeating-linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.15),
-        rgba(0, 0, 0, 0.15) 1px,
-        transparent 1px,
-        transparent 2px
-    );
-    pointer-events: none;
-    z-index: 1;
-    opacity: 0.15;
+    display: none;
 }
 
 /* Terminal Welcome */
@@ -81,10 +88,10 @@ body::before {
     margin-left: auto;
     margin-right: auto;
     text-align: left;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: var(--bg-color);
     padding: 15px;
-    border-radius: 5px;
-    border: 1px solid var(--border-color);
+    border-radius: 0;
+    border: 1px solid var(--text-color);
 }
 
 .boot-line {
@@ -124,13 +131,13 @@ body::before {
     }
 }
 
-/* Terminal Content */
 .terminal {
     width: 100%;
     background-color: var(--terminal-bg);
     overflow: hidden;
     margin: 0 auto;
     min-height: 100vh;
+    position: relative;
 }
 
 .terminal-content {
@@ -139,7 +146,6 @@ body::before {
     margin: 0 auto;
 }
 
-/* Command Line Styling */
 .command-line {
     margin-bottom: 10px;
     display: flex;
@@ -154,7 +160,6 @@ body::before {
     position: absolute;
     left: 0;
     color: var(--accent-color);
-    animation: pulse 1.5s infinite;
 }
 
 .prompt {
@@ -173,21 +178,7 @@ body::before {
 }
 
 @keyframes blink {
-    50% {
-        opacity: 0;
-    }
-}
-
-@keyframes pulse {
-    0% {
-        opacity: 0.5;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0.5;
-    }
+    50% { opacity: 0; }
 }
 
 /* Matrix Rain Effect */
@@ -236,13 +227,13 @@ body::before {
 
 .output {
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.03);
-    border-radius: 5px;
+    background-color: var(--bg-color);
+    border-radius: 0;
     margin-top: 10px;
+    border: 1px solid var(--text-color);
     border-left: 3px solid var(--highlight-color);
     position: relative;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 h1, h2, h3 {
@@ -271,7 +262,16 @@ p {
 
 .highlight {
     color: var(--accent-color);
-    font-weight: bold;
+    font-weight: 900;
+    font-size: 1.2em;
+    font-family: 'Impact', 'Arial Black', 'Helvetica', 'Consolas', 'Monaco', monospace;
+    animation: nameGlow 2s ease-in-out infinite alternate;
+    letter-spacing: 1px;
+}
+
+@keyframes nameGlow {
+    0% { text-shadow: 0 0 5px var(--accent-color); }
+    100% { text-shadow: 0 0 10px var(--accent-color); }
 }
 
 /* CTA Buttons */
@@ -287,16 +287,15 @@ p {
     padding: 10px 20px;
     background-color: transparent;
     color: var(--highlight-color);
-    border: 1px solid var(--highlight-color);
-    border-radius: 4px;
+    border: 1px solid var(--text-color);
+    border-radius: 0;
     text-decoration: none;
     font-weight: bold;
     transition: all 0.3s ease;
 }
 
 .cta-button:hover {
-    background-color: rgba(255, 88, 88, 0.1);
-    transform: translateY(-2px);
+    border-color: var(--accent-color);
 }
 
 /* Skills Section */
@@ -308,11 +307,11 @@ p {
 }
 
 .skill-item {
-    background-color: rgba(255, 255, 255, 0.03);
-    border-radius: 5px;
+    background-color: var(--bg-color);
+    border-radius: 0;
     padding: 15px;
-    border: 1px solid var(--border-color);
-    transition: transform 0.3s ease;
+    border: 1px solid var(--text-color);
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -321,8 +320,7 @@ p {
 }
 
 .skill-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-color: var(--accent-color);
 }
 
 .skill-item i {
@@ -341,16 +339,15 @@ p {
 }
 
 .project {
-    background-color: rgba(255, 255, 255, 0.03);
-    border-radius: 5px;
+    background-color: var(--bg-color);
+    border-radius: 0;
     padding: 20px;
-    border: 1px solid var(--border-color);
-    transition: transform 0.3s ease;
+    border: 1px solid var(--text-color);
+    transition: all 0.3s ease;
 }
 
 .project:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-color: var(--accent-color);
 }
 
 .project h3 {
@@ -385,17 +382,16 @@ p {
     display: flex;
     align-items: center;
     padding: 10px 15px;
-    background-color: rgba(255, 255, 255, 0.03);
-    border-radius: 5px;
+    background-color: var(--bg-color);
+    border-radius: 0;
     text-decoration: none;
     color: var(--text-color);
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--text-color);
     transition: all 0.3s ease;
 }
 
 .contact-link:hover {
-    background-color: rgba(255, 88, 88, 0.1);
-    transform: translateY(-2px);
+    border-color: var(--accent-color);
 }
 
 .contact-link i {

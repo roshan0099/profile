@@ -1,4 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    
+    if (currentTheme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+    }
+    
+    themeToggle.addEventListener('click', () => {
+        const theme = document.documentElement.getAttribute('data-theme');
+        if (theme === 'light') {
+            document.documentElement.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+        }
+    });
+
     // Initially hide all sections
     document.querySelectorAll('.section').forEach(section => {
         section.style.display = 'none';
@@ -150,16 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Set up all hover effects
     function setupHoverEffects() {
-        // Add hover effect to headings - ONLY on hover, not automatic
-        document.querySelectorAll('h1, h2, h3').forEach(heading => {
-            heading.addEventListener('mouseover', () => {
-                // Store the original text to prevent glitch issues
-                if (!heading.dataset.originalText) {
-                    heading.dataset.originalText = heading.textContent;
-                }
-                applyGlitchEffect(heading);
-            });
-        });
+        // Removed title hover effects
         
         // Add hover effect to skill categories
         document.querySelectorAll('.skill-category').forEach(skill => {
@@ -182,32 +192,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 skill.style.boxShadow = 'none';
             });
         });
-    }
-    
-    // Glitch effect function - improved to prevent text corruption
-    function applyGlitchEffect(element) {
-        // Use the stored original text to prevent corruption
-        const originalText = element.dataset.originalText || element.textContent;
-        const glitchChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/\\';
-        let iterations = 0;
-        
-        const interval = setInterval(() => {
-            element.textContent = originalText.split('')
-                .map((char, index) => {
-                    if (index < iterations) {
-                        return originalText[index];
-                    }
-                    return glitchChars[Math.floor(Math.random() * glitchChars.length)];
-                })
-                .join('');
-            
-            if (iterations >= originalText.length) {
-                clearInterval(interval);
-                element.textContent = originalText;
-            }
-            
-            iterations += 1 / 3;
-        }, 30);
     }
     
     // Easter egg: Konami code

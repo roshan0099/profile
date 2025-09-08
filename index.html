@@ -10,6 +10,7 @@
 <body>
     <div class="cursor"></div>
     <div class="terminal">
+        <button id="theme-toggle" class="theme-toggle">◐</button>
         <div class="terminal-content">
             <div class="terminal-welcome">
                 <pre class="ascii-art">
@@ -35,7 +36,7 @@
                 </div>
                 <div class="output">
                     <h1>Hello, I'm <span class="highlight">Roshan</span></h1>
-                    <p>I am a Production Engineer who applies DevOps and SRE practices to automate processes and ensure system reliability.</p>
+                    <!-- <p>I am a Production Engineer who applies DevOps and SRE practices to automate processes and ensure system reliability.</p> -->
                     <div class="cta-buttons">
                         <a href="#about" class="cta-button">About Me</a>
                         <a href="#skills" class="cta-button">Skills</a>
@@ -52,8 +53,9 @@
                 </div>
                 <div class="output">
                     <h2>About Me</h2>
-                    <p>I’m a Production Engineer with a strong focus on cloud infrastructure, automation, and modern engineering practices. My work and interests revolve around streamlining systems through CI/CD, integration and scalable deployments.</p>
-                    <p>I’m deeply engaged in DevOps and SRE practices, where I focus on reliability, performance and seamless operations across platforms. I enjoy building solutions that not only keep systems running smoothly but also evolve them to be more efficient, resilient and future ready.</p>
+                    <p>I’m someone who loves simplifying cloud infrastructure and automating wherever possible. I love working on CI/CD, scaling apps and keeping systems smooth and reliable. </p>
+                    <p> I’m passionate about DevOps and SRE, always learning and finding new ways to make systems faster, sturdier, and future-ready.</p>
+
                 </div>
             </div>
 
@@ -65,8 +67,8 @@
                 <div class="output">
                     <h2>Skills</h2>
                     <div class="skills-container">
-                        <div class="skill-item"><i class="fab fa-aws"></i> AWS</div>
                         <div class="skill-item"><i class="fab fa-google"></i> GCP</div>
+                        <div class="skill-item"><i class="fab fa-aws"></i> AWS</div>
                         <!-- <div class="skill-item"><i class="fab fa-microsoft"></i> Azure</div> -->
                         <div class="skill-item"><i class="fas fa-code"></i> Terraform</div>
                         <!-- <div class="skill-item"><i class="fas fa-cloud"></i> CloudFormation</div> -->
@@ -137,19 +139,19 @@
                     <h2>Contact</h2>
                     <p>Interested in working together? Feel free to reach out!</p>
                     <div class="contact-links">
-                        <a href="mailto:your.email@example.com" class="contact-link">
+                        <a href="mailto:your.roshan09ka@example.com" class="contact-link">
                             <i class="fas fa-envelope"></i>
                             <span>Email</span>
                         </a>
-                        <a href="https://linkedin.com/in/yourprofile" target="_blank" class="contact-link">
+                        <a href="https://www.linkedin.com/in/mohamed-roshan-k/" target="_blank" class="contact-link">
                             <i class="fab fa-linkedin"></i>
                             <span>LinkedIn</span>
                         </a>
-                        <a href="https://github.com/yourusername" target="_blank" class="contact-link">
+                        <a href="https://github.com/roshan0099" target="_blank" class="contact-link">
                             <i class="fab fa-github"></i>
                             <span>GitHub</span>
                         </a>
-                        <a href="https://twitter.com/yourusername" target="_blank" class="contact-link">
+                        <a href="https://x.com/home" target="_blank" class="contact-link">
                             <i class="fab fa-twitter"></i>
                             <span>Twitter</span>
                         </a>
@@ -166,5 +168,12 @@
         </div>
     </div>
     <script src="script.js"></script>
+    <script>
+        const fonts = ['serif', 'sans-serif', 'monospace', 'cursive', 'fantasy', 'Georgia', 'Times', 'Arial', 'Helvetica', 'Verdana', 'Courier', 'Impact', 'Comic Sans MS'];
+        let i = 0;
+        setInterval(() => {
+            document.querySelector('.highlight').style.fontFamily = fonts[i++ % fonts.length];
+        }, 200);
+    </script>
 </body>
 </html>
