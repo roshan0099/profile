@@ -41,6 +41,7 @@
                         <a href="#about" class="cta-button">About Me</a>
                         <a href="#skills" class="cta-button">Skills</a>
                         <a href="#projects" class="cta-button">Projects</a>
+                        <a href="#blogs" class="cta-button">Blogs</a>
                         <a href="#contact" class="cta-button">Contact</a>
                     </div>
                 </div>
@@ -94,39 +95,76 @@
                     <span class="command">find ./projects -type f -name "*.md" | xargs cat</span>
                 </div>
                 <div class="output">
-                    <!-- <h2>Projects</h2>
+                    <h2>Projects</h2>
                     <div class="projects-container">
                         <div class="project">
-                            <h3>Cloud-Native Application Platform</h3>
-                            <p>Designed and implemented a fully automated Kubernetes-based platform with GitOps workflow, reducing deployment time by 70% and improving system reliability.</p>
+                            <h3>CLIP-GKE</h3>
+                            <p>Hosted OpenAI's CLIP model on Google Kubernetes Engine with a fully automated pipeline that provisions the GKE cluster, builds Docker images, and deploys to pods. Complete end-to-end automation from infrastructure to deployment.</p>
+                            <div class="project-links">
+                                <a href="#" target="_blank" class="project-link">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                                <a href="#" target="_blank" class="project-link">
+                                    <i class="fas fa-article"></i> Article
+                                </a>
+                            </div>
                             <div class="project-tags">
-                                <span class="tag">Kubernetes</span>
-                                <span class="tag">ArgoCD</span>
+                                <span class="tag">GKE</span>
                                 <span class="tag">Terraform</span>
-                                <span class="tag">AWS</span>
+                                <span class="tag">Docker</span>
+                                <span class="tag">OpenAI CLIP</span>
+                                <span class="tag">CI/CD (Github Actions)</span>
                             </div>
                         </div>
-                        <div class="project">
-                            <h3>Infrastructure Monitoring Solution</h3>
-                            <p>Built a comprehensive monitoring and alerting system using Prometheus, Grafana, and Alertmanager, providing real-time visibility into infrastructure health and performance.</p>
-                            <div class="project-tags">
-                                <span class="tag">Prometheus</span>
-                                <span class="tag">Grafana</span>
-                                <span class="tag">Alertmanager</span>
-                                <span class="tag">SRE</span>
+
+                        <!--  -->
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="blogs">
+                <div class="command-line">
+                    <span class="prompt">roshan@portfolio:~$</span>
+                    <span class="command">ls -la blogs/</span>
+                </div>
+                <div class="output">
+                    <h2>Blogs</h2>
+                    <div class="blogs-container">
+                        <div class="blog">
+                            <h3>Hosting OpenAI CLIP on GKE </h3>
+                            <div class="blog-links">
+                                <a href="https://dev.to/mroshank/hosting-openai-clip-on-gke-4i47" target="_blank" class="blog-link">
+                                    <i class="fas fa-external-link-alt"></i> Read Article
+                                </a>
                             </div>
                         </div>
-                        <div class="project">
-                            <h3>Multi-Region Disaster Recovery</h3>
-                            <p>Architected a resilient multi-region infrastructure with automated failover capabilities, ensuring business continuity with an RPO of 15 minutes and RTO of 1 hour.</p>
-                            <div class="project-tags">
-                                <span class="tag">AWS</span>
-                                <span class="tag">Terraform</span>
-                                <span class="tag">Route53</span>
-                                <span class="tag">DynamoDB Global Tables</span>
+                        <div class="blog">
+                            <h3>Data Transfer Made Easy - Rclone</h3>
+                            <div class="blog-links">
+                                <a href="https://dev.to/mroshank/data-transfer-made-easy-rclone-2m3f" target="_blank" class="blog-link">
+                                    <i class="fas fa-external-link-alt"></i> Read Article
+                                </a>
                             </div>
                         </div>
-                    </div> -->
+                        <div class="blog">
+                            <h3>Know what you want - Dockerfile 7GB to 1GB</h3>
+                            <div class="blog-links">
+                                <a href="https://dev.to/mroshank/know-what-u-want-dockerfile-7gb-to-1gb-4ldm" target="_blank" class="blog-link">
+                                    <i class="fas fa-external-link-alt"></i> Read Article
+                                </a>
+                            </div>
+                        </div>
+                        <div class="blog">
+                            <h3>Vibecoded a Game using AmazonQ CLI</h3>
+                            <div class="blog-links">
+                                <a href="https://dev.to/mroshank/vibecoded-a-game-using-amazonq-cli-n3m" target="_blank" class="blog-link">
+                                    <i class="fas fa-external-link-alt"></i> Read Article
+                                </a>
+                            </div>
+                        </div>
+                
+                    </div>
                 </div>
             </div>
 
