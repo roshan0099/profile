@@ -605,3 +605,65 @@ p {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--secondary-color);
 }
+/* Experience Section */
+.experience-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.experience-item {
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.experience-header h3 {
+    color: var(--accent-color);
+    margin: 0;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    animation: blink 1.5s infinite;
+}
+
+.status-text {
+    font-size: 0.8rem;
+    color: var(--accent-color);
+}
+
+.company {
+    font-weight: bold;
+    margin: 0.25rem 0;
+}
+
+.duration {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.7;
+    margin: 0;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0.3; }
+}
